@@ -3,8 +3,9 @@ skinparam classAttributeIconSize 0
 
 class Seat {
     - char row
-    - int number
+    - int seatNumber
     - boolean isAllocated
+    - String customerId
 
     + Seat(row : char, number : int) : void
     + isAllocated() : boolean
@@ -14,6 +15,7 @@ class Seat {
 
 class SeatingPlan {
     List<Seat> seats
+    String VALID_ROWS = "ABC"
 
     + SeatingPlan (maxRow : char, maxSeatsPerRow : int)
     + getAvailableSeats () : int

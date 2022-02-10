@@ -1,4 +1,4 @@
-package app;
+package com.probert999.cinnamon.app;
 
 public class Main {
 

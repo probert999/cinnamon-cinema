@@ -52,6 +52,12 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -79,7 +85,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.probert999.cinnamoncinema.app.Main</mainClass>
+                            <mainClass>com.probert999.cinnamoncinema.com.probert999.cinnamon.app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
