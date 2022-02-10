@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Seat {
+    - char row
+    - int number
+    - boolean isAllocated
+
+    + Seat(row : char, number : int) : void
+    + isAllocated() : boolean
+    + allocate(customerId : String) : void
+    + getCustomer() : String
+}
+
+class SeatingPlan {
+    List<Seat> seats
+
+    + SeatingPlan (maxRow : char, maxSeatsPerRow : int)
+    + getAvailableSeats () : int
+    + reserveSeat(customerId : String) : void
+}
+
+class Movie {
+    - String id
+    - String movieName
+    - DateTime showTime
+    - SteatingPlan seatingPlan
+
+    + Movie(movieId : String, movieName : String, showTime : DateTime, seatingPlan : SeatingPlan)
+    + getId() : String
+    + getShowTime() : DateTime
+    + getName() : String
+}
+
+class Theatre {
+    - List<Movie> movies
+
+    + getMovies() : List<Movie>
+    + addMovie(movieId : String, movieName : String, showTime : DateTime)
+}
+
+class BookingService {
+    - Theatre theatre
+
+    + BookingService (theatre : Theatre)
+    + getAvailableMovies() : List<Movie>
+    + bookSeats(customerId : String, numberOfSeats : int) : boolean
+}
+
+class Customer {
+    - String id
+    - List<String> tickets
+}
+
+
+@enduml
