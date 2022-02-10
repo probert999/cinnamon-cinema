@@ -4,8 +4,8 @@ import java.text.MessageFormat;
 
 public class Seat {
 
-    private char row;
-    private int seatNumber;
+    private final char row;
+    private final int seatNumber;
     private boolean isAllocated;
     private String customerId;
 

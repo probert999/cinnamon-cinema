@@ -14,12 +14,17 @@ class Seat {
 }
 
 class SeatingPlan {
-    List<Seat> seats
-    String VALID_ROWS = "ABC"
+    - LinkedHashMap<String, Seat> seats
+    - char maxRowLetter
+    - int maxSeatsPerRow
+    - String VALID_ROWS = "ABC"
+
+    - createSeatingPlan()
 
     + SeatingPlan (maxRow : char, maxSeatsPerRow : int)
-    + getAvailableSeats () : int
-    + reserveSeat(customerId : String) : void
+    + getAvailableSeatCount () : int
+    + getAvailableSeats() : List<String>
+    + reserveSeats(seatNumbers : List<String>, customerId : String) : void
 }
 
 class Movie {
