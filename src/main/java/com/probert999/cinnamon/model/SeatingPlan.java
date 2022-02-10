@@ -3,10 +3,8 @@ package com.probert999.cinnamon.model;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class SeatingPlan {
+public class SeatingPlan implements SeatingPlanInterface {
 
     private final char maxRowLetter;
     private final int maxSeatsPerRow;
