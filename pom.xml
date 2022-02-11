@@ -85,7 +85,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.probert999.cinnamoncinema.com.probert999.cinnamon.app.Main</mainClass>
+                            <mainClass>com.probert999.cinnamon.app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

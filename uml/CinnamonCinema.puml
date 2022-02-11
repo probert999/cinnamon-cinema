@@ -50,18 +50,32 @@ class Cinema {
 
 class BookingService {
     - Cinema cinema
+    - HashMap<String,Customer> customers
 
     + BookingService (cinema : Cinema)
     + getMovies() : List<Movie>
     + addMovie(movieName : String, showTime : DateTime)
     + getAvailableMovies() : List<Movie>
     + bookSeats(customerId : String, numberOfSeats : int) : boolean
+    + getCustomer() : List<Customer>
 }
 
 class Customer {
     - String id
-    - List<String> tickets
+    - List<Tickets> tickets
+
+    + Customer(customerId : String)
+    + addTicket(ticket : Ticket) : void
+    + getTickets() : List<Tickets>
 }
+
+class Ticket {
+    - String movieName
+    - String seats
+    - LocalDateTime showTime
+
+    + Ticket(movieName : String, seats : String, showTime : LocalDateTime)
+    }
 
 
 @enduml

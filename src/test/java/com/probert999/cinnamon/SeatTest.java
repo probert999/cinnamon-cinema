@@ -57,7 +57,7 @@ public class SeatTest {
     {
         Seat seat = new Seat('A', 1);
 
-        assertThrows(IllegalStateException.class, () -> seat.getCustomer());
+        assertThrows(IllegalStateException.class, seat::getCustomer);
     }
 
 }

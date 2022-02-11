@@ -22,7 +22,7 @@ public class MovieTest {
         movieId = "Movie-1";
         movieName = "Star Wars";
         dummySeatingPlan = new SeatingPlanDummy('A', 2);
-        movieShowTime = LocalDateTime.of(2021, 3, 6, 19, 00);
+        movieShowTime = LocalDateTime.of(2022, 3, 6, 19, 0);
     }
 
     @Test

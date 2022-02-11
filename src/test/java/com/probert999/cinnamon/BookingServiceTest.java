@@ -1,11 +1,9 @@
 package com.probert999.cinnamon;
 
-import com.probert999.cinnamon.model.Cinema;
 import com.probert999.cinnamon.model.Movie;
+import com.probert999.cinnamon.model.Ticket;
 import com.probert999.cinnamon.service.BookingService;
 import com.probert999.cinnamon.testhelper.CinemaDummy;
-import com.probert999.cinnamon.testhelper.SeatingPlanDummy;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,29 +11,26 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.spy;
 
 public class BookingServiceTest {
 
-    private CinemaDummy dummyCinema;
     private BookingService bookingService;
-    String movieName1;
-    String movieName2;
-    String expectedMovieId1;
-    String expectedMovieId2;
+    private String movieName1;
+    private String movieName2;
+    private String expectedMovieId1;
+    private String expectedMovieId2;
     private LocalDateTime movieShowTime;
 
     @BeforeEach
     public void setup()
     {
-        dummyCinema = new CinemaDummy("Cinema-Test");
+        CinemaDummy dummyCinema = new CinemaDummy("Cinema-Test");
         bookingService = new BookingService(dummyCinema);
         movieName1 = "Star Wars";
         movieName2 = "Empire Strikes Back";
         expectedMovieId1 = "MOVIE-1";
         expectedMovieId2 = "MOVIE-2";
-        movieShowTime = LocalDateTime.of(2021, 3, 6, 19, 00);
+        movieShowTime = LocalDateTime.of(2022, 3, 6, 19, 0);
     }
 
     @Test
@@ -79,8 +74,13 @@ public class BookingServiceTest {
     {
         bookingService.addMovie(movieName1,movieShowTime);
         List<Movie> movies = bookingService.getMovieList();
-        String expectedTicket = "CUSTOMER-1 has [A1]";
-        assertEquals(expectedTicket,bookingService.bookSeats("CUSTOMER-1", movies.get(0), 1));
+        String expectedTicket = "[A1]";
+
+        Ticket ticket = bookingService.bookSeats("CUSTOMER-1", movies.get(0), 1);
+
+        assertEquals(movieName1,ticket.getMovieName());
+        assertEquals(expectedTicket,ticket.getSeats());
+        assertEquals(movieShowTime,ticket.getShowTime());
     }
 
     @Test
@@ -88,8 +88,12 @@ public class BookingServiceTest {
     {
         bookingService.addMovie(movieName1,movieShowTime);
         List<Movie> movies = bookingService.getMovieList();
-        String expectedTicket = "CUSTOMER-1 has [A1, A2]";
-        assertEquals(expectedTicket,bookingService.bookSeats("CUSTOMER-1", movies.get(0), 2));
+        String expectedTicket = "[A1, A2]";
+
+        Ticket ticket = bookingService.bookSeats("CUSTOMER-1", movies.get(0), 2);
+        assertEquals(movieName1,ticket.getMovieName());
+        assertEquals(expectedTicket,ticket.getSeats());
+        assertEquals(movieShowTime,ticket.getShowTime());
     }
 
     @Test

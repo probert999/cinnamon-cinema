@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 
 public class Movie {
 
-    private String movieId;
-    private String movieName;
-    private LocalDateTime showTime;
-    private SeatingPlanInterface seatingPlan;
+    private final String movieId;
+    private final String movieName;
+    private final LocalDateTime showTime;
+    private final SeatingPlanInterface seatingPlan;
 
     public Movie(String movieId, String movieName, LocalDateTime showTime, SeatingPlanInterface seatingPlan)
     {
