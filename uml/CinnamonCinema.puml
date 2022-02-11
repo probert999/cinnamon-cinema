@@ -31,26 +31,29 @@ class Movie {
     - String id
     - String movieName
     - DateTime showTime
+    - SeatingPlan seatingPlan
 
     + Movie(movieId : String, movieName : String, showTime : DateTime)
     + getMovieId() : String
     + getShowTime() : DateTime
     + getName() : String
+    + getSeatingPlan() : SeatingPlan
 }
 
 class Cinema {
     - String cinemaName
-    - List<Movie> movies
 
     + Cinema (name : String)
-    + getMovies() : List<Movie>
-    + addMovie(movieName : String, showTime : DateTime)
+    + getName () : String
+    + getSeatingPlan () : SeatingPlan
 }
 
 class BookingService {
     - Cinema cinema
 
     + BookingService (cinema : Cinema)
+    + getMovies() : List<Movie>
+    + addMovie(movieName : String, showTime : DateTime)
     + getAvailableMovies() : List<Movie>
     + bookSeats(customerId : String, numberOfSeats : int) : boolean
 }

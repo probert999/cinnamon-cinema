@@ -38,6 +38,10 @@ public class SeatingPlan implements SeatingPlanInterface {
         return (int) seats.values().stream().filter(seat -> !seat.isAllocated()).count();
     }
 
+    public List<String> getAvailableSeats() {
+        return seats.values().stream().filter(seat -> !seat.isAllocated()).map(Seat::toString).toList();
+    }
+
     public void reserveSeats(List<String> seatNumbers, String customerId) {
         List<Seat> seatsToAllocate = new ArrayList<>();
 
@@ -59,8 +63,4 @@ public class SeatingPlan implements SeatingPlanInterface {
         }
     }
 
-    public List<String> getAvailableSeats()
-    {
-        return seats.values().stream().filter(seat -> !seat.isAllocated()).map(Seat::toString).toList();
-    }
 }

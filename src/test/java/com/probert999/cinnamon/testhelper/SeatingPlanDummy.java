@@ -6,16 +6,18 @@ import java.util.List;
 
 public class SeatingPlanDummy implements SeatingPlanInterface  {
 
-    public int getAvailableSeatCount()
+    public SeatingPlanDummy(char maxRowLetter, int maxSeatsPerRow)
     {
-        return 10;
+
     }
 
-    public void reserveSeats(List<String> seatNumbers, String customerId)
-    {};
+    public int getAvailableSeatCount() {
+        return 2;
+    }
 
-    public List<String> getAvailableSeats()
-    {
+    public void reserveSeats(List<String> seatNumbers, String customerId) {};
+
+    public List<String> getAvailableSeats() {
         return List.of("A1","A2");
     };
 

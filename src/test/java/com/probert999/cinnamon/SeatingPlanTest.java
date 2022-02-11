@@ -126,5 +126,4 @@ public class SeatingPlanTest {
         assertEquals(remainingSeats, seatingPlan.getAvailableSeats());
     }
 
-
 }

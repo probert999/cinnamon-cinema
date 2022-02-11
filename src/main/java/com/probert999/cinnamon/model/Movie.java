@@ -11,6 +11,9 @@ public class Movie {
 
     public Movie(String movieId, String movieName, LocalDateTime showTime, SeatingPlanInterface seatingPlan)
     {
+        if (movieId == null || movieName == null || showTime == null || seatingPlan == null) {
+            throw new IllegalArgumentException("Invalid parameters for Movie constructor");
+        }
         this.movieId = movieId;
         this.movieName = movieName;
         this.showTime = showTime;
@@ -29,4 +32,5 @@ public class Movie {
         return showTime;
     }
 
+    public SeatingPlanInterface getSeatingPlan() { return seatingPlan; }
 }
