@@ -57,7 +57,7 @@ class BookingService {
     + addMovie(movieName : String, showTime : DateTime)
     + getAvailableMovies() : List<Movie>
     + bookSeats(customerId : String, numberOfSeats : int) : boolean
-    + getCustomer() : List<Customer>
+    + getCustomers() : List<Customer>
 }
 
 class Customer {

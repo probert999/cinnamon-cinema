@@ -4,9 +4,9 @@ import com.probert999.cinnamon.model.SeatingPlanInterface;
 
 import java.util.List;
 
-public class SeatingPlanDummy implements SeatingPlanInterface  {
+public class SeatingPlanStub implements SeatingPlanInterface  {
 
-    public SeatingPlanDummy(char maxRowLetter, int maxSeatsPerRow)
+    public SeatingPlanStub(char maxRowLetter, int maxSeatsPerRow)
     {
 
     }

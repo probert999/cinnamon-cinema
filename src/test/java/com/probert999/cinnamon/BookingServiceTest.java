@@ -3,7 +3,7 @@ package com.probert999.cinnamon;
 import com.probert999.cinnamon.model.Movie;
 import com.probert999.cinnamon.model.Ticket;
 import com.probert999.cinnamon.service.BookingService;
-import com.probert999.cinnamon.testhelper.CinemaDummy;
+import com.probert999.cinnamon.testhelper.CinemaStub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ public class BookingServiceTest {
     @BeforeEach
     public void setup()
     {
-        CinemaDummy dummyCinema = new CinemaDummy("Cinema-Test");
+        CinemaStub dummyCinema = new CinemaStub("Cinema-Test");
         bookingService = new BookingService(dummyCinema);
         movieName1 = "Star Wars";
         movieName2 = "Empire Strikes Back";

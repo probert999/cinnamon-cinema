@@ -1,7 +1,7 @@
 package com.probert999.cinnamon;
 
 import com.probert999.cinnamon.model.Movie;
-import com.probert999.cinnamon.testhelper.SeatingPlanDummy;
+import com.probert999.cinnamon.testhelper.SeatingPlanStub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +14,14 @@ public class MovieTest {
     private String movieId;
     private String movieName;
     private LocalDateTime movieShowTime;
-    private SeatingPlanDummy dummySeatingPlan;
+    private SeatingPlanStub dummySeatingPlan;
 
     @BeforeEach
     public void setup()
     {
         movieId = "Movie-1";
         movieName = "Star Wars";
-        dummySeatingPlan = new SeatingPlanDummy('A', 2);
+        dummySeatingPlan = new SeatingPlanStub('A', 2);
         movieShowTime = LocalDateTime.of(2022, 3, 6, 19, 0);
     }
 

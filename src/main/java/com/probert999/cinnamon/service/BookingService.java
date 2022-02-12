@@ -5,13 +5,13 @@ import com.probert999.cinnamon.model.*;
 import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class BookingService {
     private final CinemaInterface cinema;
-    private List<Movie> movieList;
-    private HashMap<String, Customer> customers;
+    private final List<Movie> movieList;
+    private final LinkedHashMap<String, Customer> customers;
 
     public BookingService(CinemaInterface cinema) {
         if (cinema == null) {
@@ -19,7 +19,7 @@ public class BookingService {
         }
         this.cinema = cinema;
         this.movieList = new ArrayList<>();
-        this.customers = new HashMap<>();
+        this.customers = new LinkedHashMap<>();
     }
 
     public void addMovie(String movieName, LocalDateTime showTime) {
@@ -68,8 +68,4 @@ public class BookingService {
         return new ArrayList<>(customers.values());
     }
 
-    public Customer getCustomerById(String customerId)
-    {
-        return customers.get(customerId);
-    }
 }
