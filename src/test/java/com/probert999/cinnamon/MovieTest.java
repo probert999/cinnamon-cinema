@@ -78,7 +78,7 @@ public class MovieTest {
     }
 
     @Test
-    public void shouldBeAbleToGeteatingPlan()
+    public void shouldBeAbleToGetSeatingPlan()
     {
         Movie movie = new Movie(movieId, movieName, movieShowTime, dummySeatingPlan);
         assertEquals(dummySeatingPlan, movie.getSeatingPlan());

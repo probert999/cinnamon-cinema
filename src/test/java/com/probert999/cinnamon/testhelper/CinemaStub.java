@@ -11,7 +11,7 @@ public class CinemaStub implements CinemaInterface {
     public CinemaStub(String name) {
         this.name = name;
         seatingPlan = new SeatingPlanStub('A', 2);
-    };
+    }
 
     public String getName() {
         return name;
@@ -19,5 +19,5 @@ public class CinemaStub implements CinemaInterface {
 
     public SeatingPlanInterface getSeatingPlan() {
         return seatingPlan;
-    };
+    }
 }

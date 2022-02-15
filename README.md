@@ -23,3 +23,38 @@ So that I can control reserved seating for the theatre
 ### Design
 [UML Class Diagram](https://github.com/probert999/cinnamon-cinema/blob/main/uml/CinnamonCinema.png)
 
+<li>SeatingPlan
+<li>BookingService
+<li>Movie
+<li>Cinema
+<li>Customer
+<li>Seat
+<li>Customer
+<li>Ticket
+
+#### Seat selection
+The requirement to halt on not enough seats available to be allocated needs some clarification.
+<br>This could mean the program is halted when a customer requests 3 seats and there are only 2 remaining, or
+that booking remains open until the final seats are taken.  The program implements the latter for commercial reasons!
+
+### Building and Running the application
+Once cloned, the application can be built using the following Maven command:
+
+><i>mvn compile package</i>
+
+The unit tests will be executed as part of the build process which produces a jar file in the tagret directory.
+
+<br>To run the application, from the command line, enter:
+
+><i>java -jar target/cinnamon-cinema-1.0-SNAPSHOT.jar</i>
+
+No user input is required.The output shows each booking request and whether it has been successful until all seats are booked.  A list of customers with the seat allocation is then produced.
+
+### Future enhancements
+<li>Multiple movies available for booking
+<li>Take into consideration the date and time of the movie
+<li>Different seating plan type
+<li>Multiple screens within the cinema
+<li>Improved automatic seat selection to keep customers on the same row
+<li>Customer selection of seats
+<li>Multiple customers booking at the same time (a lot to consider here!)

@@ -13,18 +13,21 @@ class Seat {
     + getCustomer() : String
 }
 
-class SeatingPlan {
+interface SeatingPlanInterface {
+    + getAvailableSeatCount () : int
+    + getAvailableSeats() : List<String>
+    + reserveSeats(seatNumbers : List<String>, customerId : String) : void
+}
+
+class SeatingPlan implements SeatingPlanInterface{
     - LinkedHashMap<String, Seat> seats
     - char maxRowLetter
     - int maxSeatsPerRow
-    - String VALID_ROWS = "ABC"
+    - String validRows
 
     - createSeatingPlan()
 
     + SeatingPlan (maxRow : char, maxSeatsPerRow : int)
-    + getAvailableSeatCount () : int
-    + getAvailableSeats() : List<String>
-    + reserveSeats(seatNumbers : List<String>, customerId : String) : void
 }
 
 class Movie {
@@ -40,16 +43,20 @@ class Movie {
     + getSeatingPlan() : SeatingPlan
 }
 
-class Cinema {
-    - String cinemaName
-
-    + Cinema (name : String)
+interface CinemaInterface {
     + getName () : String
     + getSeatingPlan () : SeatingPlan
 }
 
+class Cinema implements CinemaInterface {
+    - String cinemaName
+
+    + Cinema (name : String)
+}
+
 class BookingService {
     - Cinema cinema
+    - List<Movie> movieList
     - HashMap<String,Customer> customers
 
     + BookingService (cinema : Cinema)
@@ -75,7 +82,14 @@ class Ticket {
     - LocalDateTime showTime
 
     + Ticket(movieName : String, seats : String, showTime : LocalDateTime)
-    }
+}
 
-
+BookingService -left- SeatingPlan
+BookingService -up- Movie
+BookingService -down- Cinema
+BookingService -right- Ticket
+BookingService - Customer
+SeatingPlan -down- Seat
+Ticket -down- Customer
+CinemaInterface -right[hidden]- Cinema
 @enduml

@@ -54,8 +54,7 @@ public class BookingService {
         Ticket ticket = new Ticket(movie.getMovieName(), selectedSeats.toString(), movie.getShowTime());
 
         Customer customer = customers.get(customerId);
-        if (customer == null)
-        {
+        if (customer == null) {
             customer = new Customer(customerId);
             customers.put(customerId,customer);
         }

@@ -15,10 +15,10 @@ public class SeatingPlanStub implements SeatingPlanInterface  {
         return 2;
     }
 
-    public void reserveSeats(List<String> seatNumbers, String customerId) {};
+    public void reserveSeats(List<String> seatNumbers, String customerId) {}
 
     public List<String> getAvailableSeats() {
         return List.of("A1","A2");
-    };
+    }
 
 }
