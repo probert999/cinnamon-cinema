@@ -23,14 +23,13 @@ So that I can control reserved seating for the theatre
 ### Design
 [UML Class Diagram](https://github.com/probert999/cinnamon-cinema/blob/main/uml/CinnamonCinema.png)
 
-<li>SeatingPlan
-<li>BookingService
-<li>Movie
-<li>Cinema
-<li>Customer
-<li>Seat
-<li>Customer
-<li>Ticket
+<li>BookingService - provides methods to add and retrieve movies, book seats, generate tickets and get customer list
+<li>Cinema - has name of cinema and generates SeatingPlan. Passed into BookingService
+<li>Movie - has movie details (name, time).  Each movie has its own SeatingPlan
+<li>SeatingPlan - generates seats, maintains count and list of available seats and method to reserve seats
+<li>Seat - has seat row and number, allocation status and customer id (if allocated)
+<li>Ticket - has details of movie and seats
+<li>Customer - maintains list of allocated tickets
 
 #### Seat selection
 The requirement to halt on not enough seats available to be allocated needs some clarification.
